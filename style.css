@@ -1,0 +1,21 @@
+.logo {
+  width: 40px;
+}
+
+.logo-text {
+  vertical-align: sub;
+  margin-left: 5px;
+}
+
+.navbar {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.city-text {
+  font-size: 3rem;
+}
+
+#city-form {
+  text-align: center;
+}

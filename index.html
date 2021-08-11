@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+    <title>The Weatherly App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.0.2/lux/bootstrap.min.css"
+      integrity="sha512-JQH/PgL2GI/QRtL8+26f9MUeF1nvl/wI7vBiHSvZdD6PRLu3/wOlVDOF0k/QLfV5kU8rmuDeFoJ2gPIT0qlDmQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid d-flex justify-content-center">
+        <a class="navbar-brand" href="index.html">
+          <div>
+            <img src="./img/logo.png" alt="logo" class="logo img-fluid" />
+            <span class="logo-text">Weatherly APP</span>
+          </div>
+        </a>
+      </div>
+    </nav>
+
+    <div class="container d-flex align-items-center mt-5 flex-column">
+      <form id="city-form">
+        <div class="form-group">
+          <h1 class="city-text mb-3">Enter A City</h1>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter a city..."
+            id="city"
+            name="city"
+          />
+        </div>
+
+        <div class="d-flex flex-row justify-content-between mt-3">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="metric-choice"
+              id="celsius"
+              value="metric"
+              checked
+            />
+            <label class="form-check-label" for="celsius"> Celsius </label>
+          </div>
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="metric-choice"
+              id="kelvin"
+              value="standard"
+            />
+            <label class="form-check-label" for="kelvin"> Kelvin </label>
+          </div>
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="metric-choice"
+              id="fahrenheit"
+              value="imperial"
+            />
+            <label class="form-check-label" for="fahrenheit">
+              Fahrenheit
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+      </form>
+
+      <div class="main mt-5"></div>
+    </div>
+    <script src="./src/app.js" type="module"></script>
+  </body>
+</html>
