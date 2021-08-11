@@ -45,7 +45,7 @@ const getCity = (ev) => {
     case 'imperial':
       metric = '°F';
       break;
-    case 'celsius':
+    case 'metric':
       metric = '°C';
       break;
   }
