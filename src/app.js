@@ -1,5 +1,5 @@
 'use script';
-import { html, render } from '../node_modules/lit-html/lit-html.js';
+import { html, render } from 'https://unpkg.com/lit-html?module';
 
 const API_KEY = 'a8d61c16d66050cedd3700780014c989';
 const baseUrl = 'https://api.openweathermap.org/';
