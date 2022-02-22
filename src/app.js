@@ -7,6 +7,7 @@ const baseUrl = 'https://api.openweathermap.org/';
 const cityInputEl = document.getElementById('city');
 const buttonEl = document.querySelector('.btn');
 const mainEl = document.querySelector('.main');
+const cityFormContainer = document.querySelector('.city-form__input-container');
 
 const weatherInfoTemplate = (city, metric) => html`
   <div class="card border-primary mb-3" style="max-width: 20rem;">
@@ -22,8 +23,21 @@ const weatherInfoTemplate = (city, metric) => html`
   </div>
 `;
 
+const inputErrorTemplate = (errMessage) => html`
+  <p class="empty-input text-start text-danger">${errMessage}</p>
+`;
+
 const getCity = (ev) => {
   ev.preventDefault();
+
+  if (!cityInputEl.value.trim())
+    return render(
+      inputErrorTemplate('Input cannot be empty!'),
+      cityFormContainer
+    );
+
+  if (cityFormContainer.querySelector('.empty-input'))
+    cityFormContainer.querySelector('.empty-input').remove();
 
   const radioButtons = document.querySelectorAll('input[name="metric-choice"]');
 
@@ -53,9 +67,16 @@ const getCity = (ev) => {
   fetch(
     `${baseUrl}/data/2.5/weather?q=${cityInputEl.value}&appid=${API_KEY}&units=${selectedValue}`
   )
-    .then((res) => res.json())
+    .then((res) => {
+      if (!res.ok) throw new Error('Invalid city!');
+      return res.json();
+    })
     .then((data) => {
       render(weatherInfoTemplate(data, metric), mainEl);
+    })
+    .catch((err) => {
+      console.error(err);
+      render(inputErrorTemplate(err.message), cityFormContainer);
     });
 };
 
