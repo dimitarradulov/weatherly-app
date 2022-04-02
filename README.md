@@ -7,6 +7,7 @@ An app that lets you enter a city, choose a metric and it show you the current w
 - HTML
 - CSS
 - Vanilla JavaScript  
+- Bootstrap 5
 
 ## Quick preview
 You can check out the app here:
